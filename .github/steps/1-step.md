@@ -9,7 +9,7 @@ Ele está se preparando para desenvolver uma nova aplicação de calculadora CLI
 
 O GitHub Copilot CLI é uma **aplicação standalone de terminal** que leva o poder do GitHub Copilot diretamente para a sua linha de comando. Ele é instalado via npm e oferece uma experiência interativa robusta para desenvolvedores.
 
-<img width="60%" height="60%" alt="CopilotCLI" src="../images/copilot-cli.png" />
+<img width="60%" height="60%" alt="CopilotCLI" src="https://github.com/felipecr/skills-create-applications-with-the-copilot-cli/blob/main/.github/images/copilot-cli.png?raw=true" />
 
 #### Principais capacidades e opções incluem:
 
@@ -123,9 +123,9 @@ Issue templates ajudam a manter a consistência quando membros da equipe criam i
 > [!NOTE]
 > Ao iniciar o Copilot CLI, você pode ser solicitado a adicionar esta pasta à lista de pastas confiáveis e às combinações de teclas. Responda **yes** a ambos os prompts para continuar.
 
-<img width="60%" height="60%" alt="CopilotCLIAddDir" src="../images/copilot-cli-add-directory.png" />
+<img width="60%" height="60%" alt="CopilotCLIAddDir" src="https://github.com/felipecr/skills-create-applications-with-the-copilot-cli/blob/main/.github/images/copilot-cli-add-directory.png?raw=true" />
 <br />
-<img width="60%" height="60%" alt="CopilotCLITerminalBindings" src="../images/copilot-cli-terminal-bindings.png" />
+<img width="60%" height="60%" alt="CopilotCLITerminalBindings" src="https://github.com/felipecr/skills-create-applications-with-the-copilot-cli/blob/main/.github/images/copilot-cli-terminal-bindings.png?raw=true" />
 
 
 2. Autorize com o GitHub (se ainda não estiver autenticado) no Copilot CLI:
@@ -201,7 +201,7 @@ Issue templates ajudam a manter a consistência quando membros da equipe criam i
 > Responda **yes** para criar a issue e
 > **"Yes, and approve `gh issue` or `git config` for the rest of the running session"**.
 
-<img width="60%" height="60%" alt="CopilotCLIPerms" src="../images/copilot-cli-permissions.png" />
+<img width="60%" height="60%" alt="CopilotCLIPerms" src="https://github.com/felipecr/skills-create-applications-with-the-copilot-cli/blob/main/.github/images/copilot-cli-permissions.png?raw=true" />
 
 <details>
 <summary>Está com problemas? 🤷</summary><br/>
