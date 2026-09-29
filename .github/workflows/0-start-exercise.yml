@@ -1,0 +1,69 @@
+name: Passo 0 # Iniciar Exercício
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  actions: write
+  issues: write
+
+env:
+  STEP_1_FILE: ".github/steps/1-step.md"
+
+jobs:
+  start_exercise:
+    if: |
+      !github.event.repository.is_template
+    name: Iniciar Exercício
+    uses: skills/exercise-toolkit/.github/workflows/start-exercise.yml@v0.8.1
+    with:
+      exercise-title: "Crie aplicações com o Copilot CLI"
+      intro-message: "Vamos começar com o GitHub Copilot CLI! Vamos aprender a usá-lo para gerenciamento de issues e construção de uma aplicação calculadora em Node.js 🚀"
+
+  post_next_step_content:
+    name: Publicar conteúdo do próximo passo
+    runs-on: ubuntu-latest
+    needs: [start_exercise]
+    env:
+      ISSUE_NUMBER: ${{ needs.start_exercise.outputs.issue-number }}
+      ISSUE_REPOSITORY: ${{ github.repository }}
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Obter templates de resposta
+        uses: actions/checkout@v5
+        with:
+          repository: skills/exercise-toolkit
+          path: exercise-toolkit
+          ref: v0.8.1
+
+      - name: Criar comentário - adicionar conteúdo do passo
+        uses: GrantBirki/comment@v2.1.1
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          file: ${{ env.STEP_1_FILE }}
+          vars: |
+            login: ${{ github.actor }}
+            full_repo_name: ${{ github.repository }}
+
+      - name: Criar comentário - monitorando progresso
+        uses: GrantBirki/comment@v2.1.1
+        with:
+          repository: ${{ env.ISSUE_REPOSITORY }}
+          issue-number: ${{ env.ISSUE_NUMBER }}
+          file: exercise-toolkit/markdown-templates/step-feedback/watching-for-progress.md
+
+      - name: Habilitar workflow do próximo passo
+        run: |
+          gh workflow enable "Passo 1"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
